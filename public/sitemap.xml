@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://newairsolution.com/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://newairsolution.com/images/hero-ac.jpg</image:loc>
+      <image:title>New Air Solution - AC Repair &amp; Service in Gorakhpur</image:title>
+      <image:caption>Doorstep AC repair and jet servicing in Gorakhpur, Shahpur, Buxipur</image:caption>
+    </image:image>
+  </url>
+</urlset>

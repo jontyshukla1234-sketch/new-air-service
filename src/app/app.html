@@ -1,0 +1,1117 @@
+<!-- Top Info Notification Bar (Desktop & Tablet) -->
+<div class="top-bar">
+  <div class="container top-bar-container">
+    <div class="top-bar-left">
+      <span class="top-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>Shahpur, Buxipur Rd, Gorakhpur (U.P.)</span>
+      </span>
+      <span class="top-item hide-sm">
+        <i class="fa-solid fa-clock"></i>
+        <span>Mon - Sun: 8:00 AM - 9:00 PM</span>
+      </span>
+    </div>
+    <div class="top-bar-right">
+      <a [href]="'tel:' + config.phoneTel" class="top-link">
+        <i class="fa-solid fa-phone"></i>
+        <span>Call: {{ config.phoneDisplay }}</span>
+      </a>
+      <span class="top-divider">|</span>
+      <a [href]="getGeneralWhatsAppUrl()" target="_blank" rel="noopener" class="top-link whatsapp-link">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Main Sticky Header / Navbar -->
+<header class="site-header" [class.scrolled]="isScrolled()">
+  <div class="container header-container">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-logo">
+      <div class="logo-icon-wrap">
+        <i class="fa-solid fa-snowflake"></i>
+        <div class="logo-pulse"></div>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">{{ config.businessName }}</span>
+        <span class="brand-tag">AC Repair & Service • Gorakhpur</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links (Properly Spaced & Centered) -->
+    <nav class="desktop-nav" aria-label="Main Navigation">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#why-us" class="nav-link">Why Us</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#process" class="nav-link">How It Works</a>
+      <a href="#areas" class="nav-link">Areas</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Header Action Buttons -->
+    <div class="header-actions">
+      <a [href]="'tel:' + config.phoneTel" class="btn btn-primary btn-sm header-call-btn" title="Call Now">
+        <i class="fa-solid fa-phone"></i>
+        <span>Call: {{ config.phoneDisplay }}</span>
+      </a>
+      <a [href]="getGeneralWhatsAppUrl()" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm header-wa-btn">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </a>
+
+      <!-- Quick Mobile Call Icon Button -->
+      <a [href]="'tel:' + config.phoneTel" class="mobile-call-quick-btn" aria-label="Call Now">
+        <i class="fa-solid fa-phone"></i>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button 
+        class="mobile-toggle-btn" 
+        (click)="toggleMobileMenu()" 
+        [attr.aria-expanded]="isMobileMenuOpen()"
+        aria-label="Toggle Navigation Menu">
+        <i class="fa-solid" [class.fa-bars]="!isMobileMenuOpen()" [class.fa-xmark]="isMobileMenuOpen()"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Navigation -->
+  @if (isMobileMenuOpen()) {
+    <div class="mobile-nav-backdrop" (click)="closeMobileMenu()"></div>
+    <div class="mobile-nav-drawer">
+      <div class="mobile-nav-header">
+        <div class="brand-text">
+          <span class="brand-name">{{ config.businessName }}</span>
+          <span class="brand-tag">Gorakhpur's AC Service</span>
+        </div>
+        <button class="mobile-close-btn" (click)="closeMobileMenu()" aria-label="Close Menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="mobile-nav-links">
+        <a href="#home" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+        <a href="#services" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+          <span>Our Services</span>
+        </a>
+        <a href="#why-us" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Why Choose Us</span>
+        </a>
+        <a href="#about" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About Us</span>
+        </a>
+        <a href="#gallery" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-images"></i>
+          <span>Work Gallery</span>
+        </a>
+        <a href="#process" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Service Process</span>
+        </a>
+        <a href="#areas" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>Service Areas</span>
+        </a>
+        <a href="#contact" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-headset"></i>
+          <span>Contact & Location</span>
+        </a>
+      </nav>
+
+      <div class="mobile-nav-actions">
+        <a [href]="'tel:' + config.phoneTel" class="btn btn-primary btn-lg" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-phone"></i>
+          <span>Call: {{ config.phoneDisplay }}</span>
+        </a>
+        <a [href]="getGeneralWhatsAppUrl()" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg" (click)="closeMobileMenu()">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Chat on WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  }
+</header>
+
+<!-- Main Page Content -->
+<main>
+  <!-- 1. Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+
+    <div class="container hero-container">
+      <div class="hero-content">
+        <!-- Google Review Trust Badge -->
+        <div class="hero-rating-pill">
+          <div class="google-badge-icon">
+            <i class="fa-brands fa-google"></i>
+          </div>
+          <div class="rating-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <span class="rating-text"><strong>5.0 Star Rated</strong> (10+ Google Reviews)</span>
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="hero-title">
+          Professional AC Repair & Service <span class="highlight-text">You Can Trust</span>
+        </h1>
+
+        <!-- Hero Subheading -->
+        <p class="hero-subtitle">
+          Fast, reliable and affordable AC repair, installation, cleaning and maintenance services for homes and businesses in Gorakhpur.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta-group">
+          <a [href]="'tel:' + config.phoneTel" class="btn btn-primary btn-lg hero-btn">
+            <i class="fa-solid fa-phone"></i>
+            <span>Call Now: {{ config.phoneDisplay }}</span>
+          </a>
+          <a [href]="getGeneralWhatsAppUrl()" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg hero-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp Us</span>
+          </a>
+        </div>
+
+        <!-- Trust Indicators Below CTA -->
+        <div class="hero-trust-grid">
+          <div class="trust-indicator">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Professional Service</span>
+          </div>
+          <div class="trust-indicator">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Quick Doorstep Response</span>
+          </div>
+          <div class="trust-indicator">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Affordable Transparent Pricing</span>
+          </div>
+          <div class="trust-indicator">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Experienced Technicians</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual / Right Side Image Card -->
+      <div class="hero-visual">
+        <div class="hero-image-wrapper">
+          <img 
+            src="/images/hero-ac.jpg" 
+            alt="Professional AC technician servicing split AC in Gorakhpur" 
+            class="hero-img"
+            loading="eager"
+            width="600"
+            height="500">
+          
+          <div class="hero-overlay-card hero-card-top">
+            <div class="card-icon-round bg-blue">
+              <i class="fa-solid fa-gauge-simple-high"></i>
+            </div>
+            <div>
+              <span class="card-label">Arrival Time</span>
+              <strong class="card-value">Within 30–60 Mins</strong>
+            </div>
+          </div>
+
+          <div class="hero-overlay-card hero-card-bottom">
+            <div class="card-icon-round bg-green">
+              <i class="fa-solid fa-shield-heart"></i>
+            </div>
+            <div>
+              <span class="card-label">Service Guarantee</span>
+              <strong class="card-value">100% Genuine Spares</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Features Ribbon -->
+  <section class="trust-ribbon">
+    <div class="container">
+      <div class="trust-ribbon-grid">
+        @for (badge of config.trustBadges; track badge.title) {
+          <div class="ribbon-card">
+            <div class="ribbon-icon">
+              <i [class]="badge.icon"></i>
+            </div>
+            <div class="ribbon-info">
+              <h4 class="ribbon-title">{{ badge.title }}</h4>
+              <p class="ribbon-subtitle">{{ badge.subtitle }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Services Section -->
+  <section id="services" class="section-padding services-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fa-solid fa-snowflake"></i>
+          <span>What We Offer</span>
+        </div>
+        <h2 class="section-title">Our AC Services</h2>
+        <p class="section-desc">
+          Complete AC solutions for your home and business in Gorakhpur. From emergency repairs to annual foam wash maintenance.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        @for (service of config.services; track service.id) {
+          <div class="service-card">
+            <div class="service-img-wrap">
+              <img [src]="service.image" [alt]="service.name + ' - New Air Solution Gorakhpur'" loading="lazy" class="service-img">
+              @if (service.popularBadge) {
+                <span class="popular-badge">{{ service.popularBadge }}</span>
+              }
+              <div class="service-icon-floating">
+                <i [class]="service.icon"></i>
+              </div>
+            </div>
+
+            <div class="service-body">
+              <h3 class="service-name">{{ service.name }}</h3>
+              <p class="service-text">{{ service.shortDesc }}</p>
+              
+              <ul class="service-feature-list">
+                @for (feat of service.features; track feat) {
+                  <li>
+                    <i class="fa-solid fa-check"></i>
+                    <span>{{ feat }}</span>
+                  </li>
+                }
+              </ul>
+
+              <div class="service-card-actions">
+                <a [href]="getServiceWhatsAppUrl(service.name)" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm w-full">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>Book on WhatsApp</span>
+                </a>
+                <a [href]="'tel:' + config.phoneTel" class="btn btn-outline btn-sm w-full">
+                  <i class="fa-solid fa-phone"></i>
+                  <span>Call to Book</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Why Choose Us Section -->
+  <section id="why-us" class="section-padding why-choose-section">
+    <div class="container">
+      <div class="why-choose-layout">
+        <div class="why-choose-left">
+          <div class="section-badge">
+            <i class="fa-solid fa-award"></i>
+            <span>Why New Air Solution</span>
+          </div>
+          <h2 class="section-title text-left">
+            Why Gorakhpur Chooses Us For AC Services
+          </h2>
+          <p class="section-desc text-left">
+            We are dedicated to providing fast, professional, and honest air conditioning services. With transparent rates and certified technicians, we ensure your home and office stay comfortably cool.
+          </p>
+
+          <div class="features-list-grid">
+            @for (item of config.whyChooseUs; track item.id) {
+              <div class="why-card">
+                <div class="why-card-icon">
+                  <i [class]="item.icon"></i>
+                </div>
+                <div class="why-card-content">
+                  <div class="why-card-header">
+                    <h3 class="why-card-title">{{ item.title }}</h3>
+                    <span class="why-card-highlight">{{ item.highlight }}</span>
+                  </div>
+                  <p class="why-card-desc">{{ item.description }}</p>
+                </div>
+              </div>
+            }
+          </div>
+
+          <div class="why-cta-box">
+            <div class="why-cta-info">
+              <h4>Need Emergency AC Breakdown Repair?</h4>
+              <p>Speak directly with our expert technician now.</p>
+            </div>
+            <a [href]="'tel:' + config.phoneTel" class="btn btn-primary">
+              <i class="fa-solid fa-phone-volume"></i>
+              <span>Call {{ config.phoneDisplay }}</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="why-choose-right">
+          <div class="why-visual-wrapper">
+            <img 
+              src="/images/technician-tools.jpg" 
+              alt="Experienced AC repair technician with diagnostic tools" 
+              class="why-main-img" 
+              loading="lazy">
+            <div class="why-floating-badge">
+              <div class="badge-icon-wrap">
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <div class="badge-details">
+                <span class="badge-num">5.0 / 5.0</span>
+                <span class="badge-sub">Google Rating Score</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Supported Brands Section -->
+      <div class="supported-brands-block">
+        <span class="brands-label">We Repair & Service All Major AC Brands:</span>
+        <div class="brands-wrap">
+          @for (brand of config.supportedBrands; track brand) {
+            <div class="brand-chip">
+              <i class="fa-solid fa-snowflake brand-chip-icon"></i>
+              <span>{{ brand }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. About Us Section -->
+  <section id="about" class="section-padding about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-col">
+          <div class="about-image-stack">
+            <img 
+              src="/images/about-technician.jpg" 
+              alt="Technician of New Air Solution Gorakhpur" 
+              class="about-img-primary" 
+              loading="lazy">
+            <div class="about-experience-card">
+              <div class="about-exp-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <strong>Based in Shahpur</strong>
+                <p>Gorakhpur, Uttar Pradesh</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-col">
+          <div class="section-badge">
+            <i class="fa-solid fa-building-user"></i>
+            <span>About Our Company</span>
+          </div>
+          <h2 class="section-title text-left">About {{ config.businessName }}</h2>
+          <span class="about-tagline">Your Local AC Service Experts in Gorakhpur</span>
+
+          <p class="about-paragraph">
+            <strong>{{ config.businessName }}</strong> is a trusted, locally operated air conditioning repair and maintenance service provider located at <em>Buxipur Rd, Ariya Poram Colony, Shahpur, Gorakhpur</em>. We specialize in comprehensive cooling solutions for both residential homes and commercial establishments.
+          </p>
+
+          <p class="about-paragraph">
+            Whether your split AC has stopped cooling, your window AC is leaking water, or your system requires pure refrigerant gas refilling and high-pressure jet wash, our skilled technicians arrive quickly at your doorstep equipped with proper diagnostic tools and genuine spare parts.
+          </p>
+
+          <div class="about-points-grid">
+            <div class="about-point">
+              <i class="fa-solid fa-check-double"></i>
+              <div>
+                <strong>Doorstep Service Across Gorakhpur</strong>
+                <p>Shahpur, Buxipur, Golghar & nearby areas.</p>
+              </div>
+            </div>
+            <div class="about-point">
+              <i class="fa-solid fa-check-double"></i>
+              <div>
+                <strong>Honest Diagnostics & Fair Rates</strong>
+                <p>No unnecessary repairs or surprise bills.</p>
+              </div>
+            </div>
+            <div class="about-point">
+              <i class="fa-solid fa-check-double"></i>
+              <div>
+                <strong>All AC Models Supported</strong>
+                <p>Inverter, Non-Inverter, Split, Window & Tower ACs.</p>
+              </div>
+            </div>
+            <div class="about-point">
+              <i class="fa-solid fa-check-double"></i>
+              <div>
+                <strong>7 Days Open (8 AM – 9 PM)</strong>
+                <p>Emergency breakdown support when you need it.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-cta-row">
+            <a [href]="'tel:' + config.phoneTel" class="btn btn-primary">
+              <i class="fa-solid fa-phone"></i>
+              <span>Call Us: {{ config.phoneDisplay }}</span>
+            </a>
+            <a [href]="getGeneralWhatsAppUrl()" target="_blank" rel="noopener" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>WhatsApp Us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 4-Step Service Process -->
+  <section id="process" class="section-padding process-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fa-solid fa-timeline"></i>
+          <span>Simple 4 Steps</span>
+        </div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-desc">
+          Getting your AC repaired or serviced with New Air Solution is quick and hassle-free.
+        </p>
+      </div>
+
+      <div class="process-steps-grid">
+        @for (step of config.processSteps; track step.stepNumber; let i = $index) {
+          <div class="step-card">
+            <div class="step-num-badge">{{ step.stepNumber }}</div>
+            <div class="step-icon-wrap">
+              <i [class]="step.icon"></i>
+            </div>
+            <h3 class="step-title">{{ step.title }}</h3>
+            <p class="step-desc">{{ step.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Work Gallery with Lightbox -->
+  <section id="gallery" class="section-padding gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fa-solid fa-camera"></i>
+          <span>Our Work</span>
+        </div>
+        <h2 class="section-title">Service & Repair Gallery</h2>
+        <p class="section-desc">
+          Take a look at our on-site AC repair, deep jet cleaning, gas refilling, and installation work in Gorakhpur.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="gallery-filters">
+        <button 
+          class="filter-btn" 
+          [class.active]="selectedGalleryCategory() === 'all'"
+          (click)="setGalleryCategory('all')">
+          All Photos ({{ config.gallery.length }})
+        </button>
+        <button 
+          class="filter-btn" 
+          [class.active]="selectedGalleryCategory() === 'repair'"
+          (click)="setGalleryCategory('repair')">
+          AC Repair
+        </button>
+        <button 
+          class="filter-btn" 
+          [class.active]="selectedGalleryCategory() === 'service'"
+          (click)="setGalleryCategory('service')">
+          AC Servicing
+        </button>
+        <button 
+          class="filter-btn" 
+          [class.active]="selectedGalleryCategory() === 'installation'"
+          (click)="setGalleryCategory('installation')">
+          Installation
+        </button>
+        <button 
+          class="filter-btn" 
+          [class.active]="selectedGalleryCategory() === 'cleaning'"
+          (click)="setGalleryCategory('cleaning')">
+          Deep Cleaning
+        </button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid">
+        @for (item of filteredGallery(); track item.id) {
+          <div class="gallery-item-card" (click)="openLightbox(item)">
+            <div class="gallery-img-box">
+              <img [src]="item.image" [alt]="item.title" loading="lazy" class="gallery-thumb">
+              <div class="gallery-hover-overlay">
+                <span class="gallery-category-pill">{{ item.categoryLabel }}</span>
+                <h4 class="gallery-hover-title">{{ item.title }}</h4>
+                <div class="gallery-zoom-btn">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i>
+                  <span>Click to view</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox / Modal for Gallery -->
+  @if (activeLightboxItem(); as activeItem) {
+    <div class="lightbox-overlay" (click)="closeLightbox()">
+      <div class="lightbox-dialog" (click)="$event.stopPropagation()">
+        <button class="lightbox-close-btn" (click)="closeLightbox()" aria-label="Close Lightbox">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <button class="lightbox-nav-btn prev-btn" (click)="prevLightbox()" aria-label="Previous Image">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        
+        <button class="lightbox-nav-btn next-btn" (click)="nextLightbox()" aria-label="Next Image">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="lightbox-body">
+          <div class="lightbox-image-container">
+            <img [src]="activeItem.image" [alt]="activeItem.title" class="lightbox-img">
+          </div>
+          <div class="lightbox-details">
+            <span class="lightbox-badge">{{ activeItem.categoryLabel }}</span>
+            <h3 class="lightbox-title">{{ activeItem.title }}</h3>
+            <p class="lightbox-desc">{{ activeItem.description }}</p>
+            
+            <div class="lightbox-actions">
+              <a [href]="getGalleryWhatsAppUrl(activeItem)" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Book This Service on WhatsApp</span>
+              </a>
+              <a [href]="'tel:' + config.phoneTel" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-phone"></i>
+                <span>Call Now: {{ config.phoneDisplay }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- 7. Quick Interactive WhatsApp Service Booking Estimator -->
+  <section class="section-padding quick-inquiry-section">
+    <div class="container">
+      <div class="quick-inquiry-card">
+        <div class="inquiry-header">
+          <div class="section-badge">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Instant WhatsApp Booking</span>
+          </div>
+          <h2 class="inquiry-title">Quick AC Service Inquiry</h2>
+          <p class="inquiry-sub">Select your AC type & requirement to start a direct WhatsApp chat with our technician!</p>
+        </div>
+
+        <div class="inquiry-form-layout">
+          <!-- AC Type Selector -->
+          <div class="inquiry-group">
+            <label class="inquiry-label">1. Select AC Type:</label>
+            <div class="selector-pills">
+              @for (type of ['Split AC', 'Window AC', 'Inverter Split AC', 'Commercial / Cassette']; track type) {
+                <button 
+                  type="button" 
+                  class="pill-btn" 
+                  [class.active]="selectedAcType() === type"
+                  (click)="selectedAcType.set(type)">
+                  <i class="fa-solid fa-snowflake"></i>
+                  <span>{{ type }}</span>
+                </button>
+              }
+            </div>
+          </div>
+
+          <!-- Service Needed Selector -->
+          <div class="inquiry-group">
+            <label class="inquiry-label">2. Select Service Needed:</label>
+            <div class="selector-pills">
+              @for (srv of ['AC Servicing & Jet Cleaning', 'AC Repair & Cooling Fix', 'Gas Checking & Refilling', 'New AC Installation', 'Complete Dismantle Wash']; track srv) {
+                <button 
+                  type="button" 
+                  class="pill-btn" 
+                  [class.active]="selectedServiceType() === srv"
+                  (click)="selectedServiceType.set(srv)">
+                  <i class="fa-solid fa-wrench"></i>
+                  <span>{{ srv }}</span>
+                </button>
+              }
+            </div>
+          </div>
+
+          <!-- Optional Note -->
+          <div class="inquiry-group">
+            <label class="inquiry-label">3. Describe Issue (Optional):</label>
+            <input 
+              type="text" 
+              class="inquiry-input" 
+              placeholder="e.g. AC not blowing cold air / water dripping / making noise in Shahpur..." 
+              [(ngModel)]="customNote">
+          </div>
+
+          <!-- Action -->
+          <div class="inquiry-submit-row">
+            <a [href]="getCustomInquiryWhatsAppUrl()" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Send WhatsApp Inquiry to {{ config.phoneDisplay }}</span>
+            </a>
+            <span class="inquiry-note"><i class="fa-solid fa-bolt"></i> Technician typically responds in 5-10 minutes!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Service Areas & Google Maps Section -->
+  <section id="areas" class="section-padding areas-section">
+    <div class="container">
+      <div class="areas-grid-layout">
+        <div class="areas-info-col">
+          <div class="section-badge">
+            <i class="fa-solid fa-map-pin"></i>
+            <span>Local Coverage</span>
+          </div>
+          <h2 class="section-title text-left">
+            Serving Customers In & Around Gorakhpur
+          </h2>
+          <p class="section-desc text-left">
+            We provide prompt same-day doorstep AC repair and servicing throughout Shahpur, Buxipur Road, and surrounding localities in Gorakhpur.
+          </p>
+
+          <div class="area-badges-grid">
+            @for (area of config.serviceAreas; track area) {
+              <div class="area-badge-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>{{ area }}</span>
+              </div>
+            }
+          </div>
+
+          <div class="address-highlight-card">
+            <div class="addr-icon">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <div class="addr-text">
+              <strong>Workshop & Office Address:</strong>
+              <p>{{ config.address.fullFormatted }}</p>
+            </div>
+          </div>
+
+          <div class="areas-cta-group">
+            <a [href]="config.googleMaps.directDirectionsUrl" target="_blank" rel="noopener" class="btn btn-primary">
+              <i class="fa-solid fa-diamond-turn-right"></i>
+              <span>Get Directions on Google Maps</span>
+            </a>
+            <a [href]="'tel:' + config.phoneTel" class="btn btn-outline">
+              <i class="fa-solid fa-phone"></i>
+              <span>Call: {{ config.phoneDisplay }}</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="areas-map-col">
+          <div class="map-frame-wrapper">
+            <iframe 
+              [src]="safeMapUrl" 
+              width="100%" 
+              height="420" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="New Air Solution Gorakhpur Location Map">
+            </iframe>
+            <div class="map-overlay-badge">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <span>New Air Solution • Shahpur Gorakhpur</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Customer Testimonials (Google Reviews Auto-Slider) -->
+  <section class="section-padding reviews-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fa-brands fa-google"></i>
+          <span>Google Reviews</span>
+        </div>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-desc">
+          Rated 5.0 Stars by local homeowners and business owners across Gorakhpur.
+        </p>
+      </div>
+    </div>
+
+    <!-- Infinite Auto-Sliding Marquee Track -->
+    <div class="reviews-slider-wrapper">
+      <div class="reviews-marquee-track">
+        <!-- Set 1 of Reviews -->
+        <div class="reviews-marquee-group">
+          @for (rev of config.reviews; track rev.name + '-1') {
+            <div class="review-card slide-card">
+              <div class="review-header">
+                <div class="review-avatar">
+                  {{ rev.name.charAt(0) }}
+                </div>
+                <div class="review-author-meta">
+                  <div class="review-name-row">
+                    <h4 class="review-name">{{ rev.name }}</h4>
+                    @if (rev.badge) {
+                      <span class="review-guide-badge"><i class="fa-solid fa-star"></i> {{ rev.badge }}</span>
+                    }
+                  </div>
+                  <div class="review-sub-row">
+                    <span class="review-loc"><i class="fa-solid fa-location-dot"></i> {{ rev.location }}</span>
+                    @if (rev.userStats) {
+                      <span class="review-dot-sep">•</span>
+                      <span class="review-stats">{{ rev.userStats }}</span>
+                    }
+                  </div>
+                </div>
+                <div class="review-g-icon" title="Google Review">
+                  <i class="fa-brands fa-google"></i>
+                </div>
+              </div>
+
+              <div class="review-stars-row">
+                <div class="stars-list">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="review-verified"><i class="fa-solid fa-circle-check"></i> 5.0 Star</span>
+              </div>
+
+              <p class="review-comment">"{{ rev.comment }}"</p>
+
+              <div class="review-footer">
+                <span class="review-service-tag"><i class="fa-solid fa-wrench"></i> {{ rev.service }}</span>
+                <span class="review-date">{{ rev.date }}</span>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Set 2 (Duplicate for Seamless Infinite Loop) -->
+        <div class="reviews-marquee-group" aria-hidden="true">
+          @for (rev of config.reviews; track rev.name + '-2') {
+            <div class="review-card slide-card">
+              <div class="review-header">
+                <div class="review-avatar">
+                  {{ rev.name.charAt(0) }}
+                </div>
+                <div class="review-author-meta">
+                  <div class="review-name-row">
+                    <h4 class="review-name">{{ rev.name }}</h4>
+                    @if (rev.badge) {
+                      <span class="review-guide-badge"><i class="fa-solid fa-star"></i> {{ rev.badge }}</span>
+                    }
+                  </div>
+                  <div class="review-sub-row">
+                    <span class="review-loc"><i class="fa-solid fa-location-dot"></i> {{ rev.location }}</span>
+                    @if (rev.userStats) {
+                      <span class="review-dot-sep">•</span>
+                      <span class="review-stats">{{ rev.userStats }}</span>
+                    }
+                  </div>
+                </div>
+                <div class="review-g-icon" title="Google Review">
+                  <i class="fa-brands fa-google"></i>
+                </div>
+              </div>
+
+              <div class="review-stars-row">
+                <div class="stars-list">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="review-verified"><i class="fa-solid fa-circle-check"></i> 5.0 Star</span>
+              </div>
+
+              <p class="review-comment">"{{ rev.comment }}"</p>
+
+              <div class="review-footer">
+                <span class="review-service-tag"><i class="fa-solid fa-wrench"></i> {{ rev.service }}</span>
+                <span class="review-date">{{ rev.date }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Interaction Helper Pill -->
+    <div class="container text-center mt-4">
+      <div class="slider-helper-pill">
+        <i class="fa-solid fa-hand-pointer"></i>
+        <span>Hover or touch any card to pause auto-slide</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Frequently Asked Questions (FAQ) -->
+  <section class="section-padding faq-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fa-solid fa-circle-question"></i>
+          <span>Helpful Answers</span>
+        </div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">
+          Common queries about our AC repair, servicing rates, and turnaround times in Gorakhpur.
+        </p>
+      </div>
+
+      <div class="faq-accordion-list">
+        @for (faq of config.faqs; track faq.question; let i = $index) {
+          <div class="faq-item" [class.open]="openFaqIndex() === i">
+            <button class="faq-question-btn" (click)="toggleFaq(i)" [attr.aria-expanded]="openFaqIndex() === i">
+              <span class="faq-q-text">{{ faq.question }}</span>
+              <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </button>
+            @if (openFaqIndex() === i) {
+              <div class="faq-answer-body">
+                <p>{{ faq.answer }}</p>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Contact Section -->
+  <section id="contact" class="section-padding contact-section">
+    <div class="container">
+      <div class="contact-card-main">
+        <div class="contact-header-text">
+          <div class="section-badge">
+            <i class="fa-solid fa-headset"></i>
+            <span>Get In Touch</span>
+          </div>
+          <h2 class="contact-title">Contact {{ config.businessName }}</h2>
+          <p class="contact-subtitle">
+            Need emergency AC repair, routine servicing, or a quote? Contact us directly by phone or WhatsApp.
+          </p>
+        </div>
+
+        <div class="contact-info-grid">
+          <!-- Phone Card -->
+          <div class="contact-info-card">
+            <div class="contact-card-icon bg-blue">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <h3 class="contact-card-title">Phone Number</h3>
+            <p class="contact-card-desc">Call us directly for instant booking</p>
+            <a [href]="'tel:' + config.phoneTel" class="contact-link phone-num">
+              {{ config.phoneDisplay }}
+            </a>
+            <a [href]="'tel:' + config.phoneTel" class="btn btn-primary btn-sm mt-3">
+              <i class="fa-solid fa-phone"></i> Call Now
+            </a>
+          </div>
+
+          <!-- WhatsApp Card -->
+          <div class="contact-info-card">
+            <div class="contact-card-icon bg-green">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h3 class="contact-card-title">WhatsApp Support</h3>
+            <p class="contact-card-desc">Send photos of issue & get quick quote</p>
+            <a [href]="getGeneralWhatsAppUrl()" target="_blank" rel="noopener" class="contact-link wa-num">
+              {{ config.phoneFormatted }}
+            </a>
+            <a [href]="getGeneralWhatsAppUrl()" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm mt-3">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+            </a>
+          </div>
+
+          <!-- Address Card -->
+          <div class="contact-info-card">
+            <div class="contact-card-icon bg-amber">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h3 class="contact-card-title">Workshop Address</h3>
+            <p class="contact-card-desc">{{ config.address.street }}</p>
+            <span class="contact-address-text">{{ config.address.city }}, {{ config.address.state }} – {{ config.address.pincode }}</span>
+            <a [href]="config.googleMaps.directDirectionsUrl" target="_blank" rel="noopener" class="btn btn-outline btn-sm mt-3">
+              <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+            </a>
+          </div>
+
+          <!-- Working Hours Card -->
+          <div class="contact-info-card">
+            <div class="contact-card-icon bg-purple">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <h3 class="contact-card-title">Working Hours</h3>
+            <p class="contact-card-desc">{{ config.workingHours.days }}</p>
+            <strong class="contact-hours-time">{{ config.workingHours.display }}</strong>
+            <span class="contact-emergency-badge"><i class="fa-solid fa-bolt"></i> Urgent Service Available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 12. Footer -->
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-grid">
+      <!-- Col 1: Brand & Bio -->
+      <div class="footer-col footer-col-brand">
+        <a href="#" class="brand-logo footer-logo">
+          <div class="logo-icon-wrap">
+            <i class="fa-solid fa-snowflake"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name text-white">{{ config.businessName }}</span>
+            <span class="brand-tag text-light">AC Repair & Service • Gorakhpur</span>
+          </div>
+        </a>
+        <p class="footer-bio">
+          {{ config.businessName }} is Gorakhpur's reliable AC repair, installation, gas refilling, and jet servicing specialist for residential and commercial spaces.
+        </p>
+        <div class="footer-rating-pill">
+          <i class="fa-brands fa-google"></i>
+          <span>Rated 5.0 on Google (10 Reviews)</span>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Quick Links</h4>
+        <ul class="footer-nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Our AC Services</a></li>
+          <li><a href="#why-us">Why Choose Us</a></li>
+          <li><a href="#about">About Our Company</a></li>
+          <li><a href="#gallery">Service Gallery</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#areas">Service Areas</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Our Services</h4>
+        <ul class="footer-nav-list">
+          <li><a href="#services">Split AC Repair</a></li>
+          <li><a href="#services">Window AC Service</a></li>
+          <li><a href="#services">Deep Jet Cleaning</a></li>
+          <li><a href="#services">AC Gas Refilling</a></li>
+          <li><a href="#services">AC Installation & Fitting</a></li>
+          <li><a href="#services">Preventive Maintenance</a></li>
+          <li><a href="#services">PCB & Wiring Fix</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact Details -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Contact & Location</h4>
+        <div class="footer-contact-items">
+          <div class="footer-contact-row">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>{{ config.address.fullFormatted }}</span>
+          </div>
+          <div class="footer-contact-row">
+            <i class="fa-solid fa-phone"></i>
+            <a [href]="'tel:' + config.phoneTel">{{ config.phoneDisplay }}</a>
+          </div>
+          <div class="footer-contact-row">
+            <i class="fa-brands fa-whatsapp"></i>
+            <a [href]="getGeneralWhatsAppUrl()" target="_blank" rel="noopener">+91 78804 95627</a>
+          </div>
+          <div class="footer-contact-row">
+            <i class="fa-solid fa-clock"></i>
+            <span>{{ config.workingHours.display }}</span>
+          </div>
+        </div>
+
+        <div class="footer-action-btns">
+          <a [href]="'tel:' + config.phoneTel" class="btn btn-primary btn-sm">
+            <i class="fa-solid fa-phone"></i> Call Now
+          </a>
+          <a [href]="getGeneralWhatsAppUrl()" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="footer-bottom">
+      <p class="copyright-text">
+        © 2026 <strong>{{ config.businessName }}</strong>. All Rights Reserved. Air Conditioning Repair & Service in Gorakhpur, Uttar Pradesh.
+      </p>
+      <div class="footer-bottom-links">
+        <span>Shahpur • Buxipur Rd • Gorakhpur 273001</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- 13. Mobile Sticky Bottom Action Bar (Fixed for quick 1-tap call/whatsapp) -->
+<div class="mobile-sticky-bar">
+  <a [href]="'tel:' + config.phoneTel" class="mobile-bar-btn bar-call">
+    <i class="fa-solid fa-phone-volume"></i>
+    <span>Call Now</span>
+  </a>
+  <a [href]="getGeneralWhatsAppUrl()" target="_blank" rel="noopener" class="mobile-bar-btn bar-whatsapp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>WhatsApp Us</span>
+  </a>
+</div>
+
+<!-- Floating Desktop WhatsApp Widget -->
+<a [href]="getGeneralWhatsAppUrl()" target="_blank" rel="noopener" class="desktop-floating-wa" aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span class="floating-tooltip">Chat with us!</span>
+</a>
